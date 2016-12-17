@@ -1,0 +1,48 @@
+SLIC: a whole brain parcellation toolbox
+Copyright (C) 2016 Jing Wang
+
+We used the Beijing_Zang dataset to generate the atlases in this toolbox. 
+
+1. The rest.nii.gz of sub62966 seems to be acquired in a different 
+orientation. (Note from the Beijing_Zang dataset.)
+
+2. Subjects sub26713, sub49782, sub66889, sub82714 and sub85818 were 
+excluded from the group analyses in the paper. An error occurred during 
+the regression of the nuisance covariates. (Note from the Beijing_Zang 
+dataset.)
+
+3. The following subjects have empty time courses within the graymatter 
+mask. Two of them, i.e., sub21115 and sub12220 were excluded since the 
+number of empty time courses are large. 
+sub52044, 1
+sub21115, 43
+sub12220, 28
+sub71693, 5
+sub67844, 1
+
+Including the subjects in points 1 & 2, there were totally 8 subjects being 
+excluede from analysis. Therefore, we calcuated the parcellation based on 
+190 (of 198) subjects from the Beijing_Zang dataset. The preprocessed 
+dataset is not shared since it is a huge data. You might use your own 
+preprocessed fMRI data to generate the atlases, or you could just use the 
+data of 40 subjects. 
+
+For other information, please refer to the Readme_plus file, which was 
+written for the demo. The major differences between the demo and this 
+atlas generation toolbox are:
+(1) There are 40 subjects being calculated in the demo while there are 190 
+subjects being calculated in this toolbox. 
+(2) Different evaluation metrics are computed in the demo but not in this
+toolbox. 
+
+Reference:
+Jing Wang, Haixian Wang. A supervoxel-based method for groupwise whole 
+brain parcellation with resting-state fMRI data. Frontiers in Human 
+Neuroscience. DOI: 10.3389/fnhum.2016.00659
+
+Contact information:
+Jing Wang
+wangjing0@seu.edu.cn
+yuzhounh@163.com
+
+2016-12-17 22:02:43
