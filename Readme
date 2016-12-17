@@ -9,7 +9,8 @@ Neuroimage). The remaining two are the mean SLIC and two-level SLIC
 approaches that integrate Ncut and SLIC. We used 190 subjects from the 
 Beijing_Zang dataset to generate the atlases. And the resultant atlases 
 are shared within this toolbox. For further information, see the 
-Readme_data and Readme_plus files. 
+Readme_data and Readme_plus files. This project is also shared on NITRC, 
+https://www.nitrc.org/projects/slic/. 
 
 Usage:
 Run parc_main.m to play this demo. 
