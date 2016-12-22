@@ -24,9 +24,14 @@ load sK.mat;
 cK=sK(iK);
 
 load(sprintf('SLIC_twolevel_weight/K%d.mat',cK));
-delta=20; % for redundancy
+delta=30; % for redundancy
 [EV,EDD]=Ncut_eigen(W,cK+delta);  
+
 nTrivial=sum(EDD<1e-4);  % the number of trivial eigenvalues
+if nTrivial>delta
+    error('Please increase the "delta" value and try again.');
+end
+
 EV=EV(:,end-nTrivial-cK+1:end-nTrivial);  % noly keep the nontrivial eigenvectors
 EDD=EDD(end-nTrivial-cK+1:end-nTrivial);
 

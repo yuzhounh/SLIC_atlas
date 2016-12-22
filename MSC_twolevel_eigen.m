@@ -26,7 +26,12 @@ cK=sK(iK);
 load(sprintf('MSC_twolevel_weight/K%d.mat',cK));
 delta=10; % for redundancy
 [EV,EDD]=Ncut_eigen(W,cK+delta);  
+
 nTrivial=sum(EDD<1e-4);  % the number of trivial eigenvalues
+if nTrivial>delta
+    error('Please increase the "delta" value and try again.');
+end
+
 EV=EV(:,end-nTrivial-cK+1:end-nTrivial);  % noly keep the nontrivial eigenvectors
 EDD=EDD(end-nTrivial-cK+1:end-nTrivial);
 
