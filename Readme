@@ -1,28 +1,55 @@
-SLIC: a whole brain parcellation toolbox
-Copyright (C) 2016 Jing Wang
+# SLIC Atlas
 
-This toolbox utilizes five whole brain parcellation approaches that 
-operates on resting-state fMRI data to generate groupwise whole brain 
-atlases. Three of the five approaches are reproduced from the Ncut-based 
-approaches in (Craddock et al., 2012, HBM) and (Shen et al., 2013, 
-Neuroimage). The remaining two are the mean SLIC and two-level SLIC 
-approaches that integrate Ncut and SLIC. We used 190 subjects from the 
-Beijing_Zang dataset to generate the atlases. And the resultant atlases 
-are shared within this toolbox. For further information, see the 
-Readme_data and Readme_plus files. This project is also shared on NITRC, 
-https://www.nitrc.org/projects/slic/. 
+MATLAB scripts and bundled atlas outputs for groupwise whole-brain parcellation of resting-state fMRI data.
 
-Usage:
-Run parc_main.m to play this demo. 
+[GPL-3.0 license](LICENSE) · [Dataset notes](Readme_data) · [Technical notes](Readme_plus)
 
-Reference:
-Jing Wang, Haixian Wang. A supervoxel-based method for groupwise whole 
-brain parcellation with resting-state fMRI data. Frontiers in Human 
-Neuroscience. DOI: 10.3389/fnhum.2016.00659
+The original study notes describe atlas generation from 190 participants in the Beijing_Zang dataset. The resulting atlases are distributed in [Atlas.zip](Atlas.zip); the full preprocessed 190-subject dataset is not included.
 
-Contact information:
-Jing Wang
-wangjing0@seu.edu.cn
-yuzhounh@163.com
+## Quick Start
 
-2016-12-13 22:06:10
+To inspect the existing atlas outputs, extract [Atlas.zip](Atlas.zip).
+
+To generate atlases:
+
+1. Prepare MATLAB with Parallel Computing Toolbox and the NIfTI tools used by the scripts.
+2. Supply your preprocessed subject images under `data/`, following the `subNNNNN` naming expected by [main_subject.m](main_subject.m).
+3. Read [Readme_data](Readme_data) for cohort exclusions and [Readme_plus](Readme_plus) for preprocessing and software details. The latter includes notes for the separate 40-subject demo, which must not be confused with the 190-subject atlas cohort.
+4. Review cluster parameters and worker counts, then run from the repository directory:
+
+```matlab
+main_parc
+```
+
+The actual entry point is [main_parc.m](main_parc.m). It prepares the toolbox and inputs, runs [main_algorithm.m](main_algorithm.m), and draws illustrations.
+
+[main_toolbox.m](main_toolbox.m) attempts to download and extract `NIfTI_20140122.zip`; that historical endpoint and a current execution environment have not been revalidated.
+
+## Repository Structure
+
+- [Atlas.zip](Atlas.zip): bundled atlas outputs.
+- [main_parc.m](main_parc.m): atlas-generation workflow.
+- [main_subject.m](main_subject.m): subject discovery.
+- [main_algorithm.m](main_algorithm.m): five parcellation methods.
+- [main_illustration.m](main_illustration.m): atlas illustrations.
+- [Readme_data](Readme_data): cohort selection and differences from the demo.
+- [Readme_plus](Readme_plus): data, preprocessing, software, hardware, and algorithm notes.
+
+## Citation
+
+Jing Wang and Haixian Wang. *A supervoxel-based method for groupwise whole brain parcellation with resting-state fMRI data.* Frontiers in Human Neuroscience. [doi:10.3389/fnhum.2016.00659](https://doi.org/10.3389/fnhum.2016.00659).
+
+## Related Projects
+
+- [SLIC on NITRC](https://www.nitrc.org/projects/slic/): project and data resources linked by the original documentation.
+
+## License
+
+See the existing [GNU General Public License, version 3](LICENSE). Retain the notices in the source files and in bundled third-party material.
+
+## Contact
+
+Jing Wang · [wangjing0@seu.edu.cn](mailto:wangjing0@seu.edu.cn) · [yuzhounh@163.com](mailto:yuzhounh@163.com)
+
+Copyright (C) 2016 Jing Wang.
+
